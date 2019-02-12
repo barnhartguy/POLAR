@@ -1,0 +1,6 @@
+*fs/
+*.zip
+.*
+*.pdf
+screenshots/
+*.sh

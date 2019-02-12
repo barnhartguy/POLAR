@@ -90,3 +90,7 @@ ENV/
 
 # Pycharm project settings
 .idea/
+
+#filesystem artifacts
+data/
+fs/
