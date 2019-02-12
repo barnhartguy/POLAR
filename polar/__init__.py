@@ -16,7 +16,6 @@ __version__ = 0.1
 
 # Define an Object that stores the Symbol Properties.
 # A symbol can either be Used, Provided or Imported.
-
 class Symbol(StructuredNode):
     name = StringProperty(required=True)
     user = RelationshipFrom('File', 'uses')
@@ -44,7 +43,6 @@ class Function(StructuredNode):
 
 # First parameter is the filename (the string that is stored, second argument is the path)
 # Were we will perform the activities
-
 def get_import_export_radare(filename, path):
     # We define the node or get it if already exists, for further operations.
     filenode = File.get_or_create({'name': filename})[0]
@@ -117,7 +115,7 @@ def parse_main(args=None):
     parser.add_argument("-db", "--neo4j-database",
                         help="neo4j database url",
                         dest="db_url",
-                        default="bolt://neo4j:neo4j@localhost:7687")
+                        default=config.DATABASE_URL)
 
     parser.add_argument("-d", "--directories",
                         help="Directory to parse",
@@ -145,7 +143,7 @@ def disassemble_main(args=None):
     parser.add_argument("-db", "--neo4j-database",
                         help="neo4j database url",
                         dest="db_url",
-                        default="bolt://neo4j:neo4j@localhost:7687")
+                        default=config.DATABASE_URL)
 
     parser.add_argument("-f", "--function-tuples",
                         help="file:function tuples",
