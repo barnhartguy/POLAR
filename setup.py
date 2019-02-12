@@ -7,7 +7,7 @@ __folder__ = path.dirname(__file__)
 
 with open(path.join(__folder__, 'README.md')) as ld_file:
     long_description = ld_file.read()
-    ld_file.flush()
+    ld_file.close()
 
 setup(
     name='POLAR',
