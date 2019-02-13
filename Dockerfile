@@ -15,10 +15,11 @@ RUN    apt update \
 #RUN curl -v -H "Content-Type: application/json" -X POST -d '{"password":"test"}' -u neo4j:neo4j http://localhost:7474/user/neo4j/password
 
 WORKDIR /home/POLAR
-COPY [".", "."]
-RUN    python setup.py install \
-    && pip install -r requirements.txt
+COPY ["requirements.txt", "."]
+RUN pip install -r requirements.txt
 
+COPY [".", "."]
+RUN python setup.py install
 #RUN ["scan_data_dir.py"]
 
 CMD ["/bin/bash"]

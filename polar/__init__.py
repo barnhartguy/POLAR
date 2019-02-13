@@ -43,11 +43,12 @@ class Function(StructuredNode):
 
 # First parameter is the filename (the string that is stored, second argument is the path)
 # Were we will perform the activities
-def get_import_export_radare(filename, path):
+def get_import_export_radare(filepath):
+    _, filename = path.split(filepath)
     # We define the node or get it if already exists, for further operations.
     filenode = File.get_or_create({'name': filename})[0]
     # By using r2, we open the file
-    r2 = r2pipe.open(path)
+    r2 = r2pipe.open(filepath)
     # And *a*nalyze the *f*unctions
     r2.cmd('af')
     # and get *i*nformation, on the *i*mports in a *j*son format

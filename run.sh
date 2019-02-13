@@ -14,7 +14,7 @@ done
 curl -H "Content-Type: application/json" -d '{"password":"test"}' -u neo4j:neo4j http://localhost:7474/user/neo4j/password 
 
 echo "push data to the neo4j instance"
-docker run -it --name polar --link neo4j polar_img:1 python scan_data_dir.py
+time docker run -it --name polar --link neo4j polar_img:1 python scan_data_dir.py
 echo "complete"
 echo
 echo "Use neo4j:test to log into http://localhost:7474"
